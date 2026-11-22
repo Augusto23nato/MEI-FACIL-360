@@ -9,13 +9,6 @@ aprender, você abre no navegador uma aula curta, em 4 telas:
 3. **Ilustrações** do conceito (se o OpenRouter foi ativado no setup).
 4. **Prova oral** de 3 perguntas (o que é · um exemplo · um cenário), com correção e reaprendizagem do que errou.
 
-<!-- SETUP:INICIO -->
-## PRIMEIRA VEZ — configure antes de tudo
-A pasta `setup/` ainda existe, então o Lampejo **não foi configurado**. Antes de qualquer outra coisa, leia
-`setup/SETUP.md` e conduza a configuração com a pessoa, passo a passo, em português simples. Não abra
-nenhuma aula antes do Passo 7 dar certo.
-<!-- SETUP:FIM -->
-
 ## Como dar uma aula
 Quando a pessoa pedir para aprender/entender/estudar algo ("quero aprender X", "me explica X", "aula de X",
 "Lampejo X"):
