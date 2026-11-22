@@ -1,0 +1,7 @@
+.lampejo/
+.venv/
+runs/
+.certs/
+__pycache__/
+*.pyc
+.env

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lampejo</title>
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+
+<!-- ===== HOME ===== -->
+<main id="home" class="home" hidden>
+  <div class="home-inner">
+    <div class="brand"><span class="bolt">⚡</span> Lampejo</div>
+    <h1>Qual conceito você quer<br>entender hoje?</h1>
+    <form id="startForm" class="start">
+      <input id="concept" name="concept" autocomplete="off" value="machine learning" aria-label="Conceito">
+      <button class="cta" type="submit">Começar <span>→</span></button>
+    </form>
+    <ol class="steps">
+      <li><b>1</b><span>Explicação em segundos + chat para dúvidas</span></li>
+      <li><b>2</b><span>O fluxograma do conceito em vídeo, narrado em voz</span></li>
+      <li><b>3</b><span>O conceito em imagens, desenhadas enquanto você assiste ao vídeo</span></li>
+      <li><b>4</b><span>Prova oral de 3 perguntas. Se faltar algo, você reaprende só aquilo</span></li>
+    </ol>
+  </div>
+</main>
+
+<!-- ===== DECK ===== -->
+<div id="deck" class="deck" hidden>
+  <header class="topbar">
+    <div class="tb-left">
+      <a class="brand small" href="/" title="Novo conceito"><span class="bolt">⚡</span></a>
+      <div class="tb-concept"><span id="tbConcept"></span></div>
+    </div>
+    <div id="jobs" class="jobs" aria-live="polite"></div>
+    <div class="tb-right"><span id="tbLLM" class="llm" hidden></span><span id="tbClock" class="mono" title="tempo de sessão"></span></div>
+  </header>
+
+  <section id="stage" class="stage"></section>
+
+  <footer class="navbar">
+    <button id="prev" class="navbtn" aria-label="Slide anterior">←</button>
+    <div id="tabs" class="tabs"></div>
+    <button id="next" class="navbtn" aria-label="Próximo slide">→</button>
+  </footer>
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+</div>
+
+<!-- ===== ARQUITETURA ===== -->
+<aside id="arch" class="arch" aria-hidden="true">
+  <div class="arch-head">
+    <div><div class="kicker">Como isto é arquitetado</div><h3 id="archTitle"></h3></div>
+    <button id="archClose" class="iconbtn" aria-label="Fechar">✕</button>
+  </div>
+  <div id="archBody" class="arch-body"></div>
+</aside>
+<div id="scrim" class="scrim"></div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

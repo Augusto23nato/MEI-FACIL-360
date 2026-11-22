@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Substituto do draw.io para ambientes sem o app (ex.: contêiner na nuvem).
+# Aceita os mesmos argumentos que o Lampejo usa:  drawio --export --format png --scale N --border N --output OUT IN
+# e desenha o .drawio com o mxGraph (o motor do draw.io) num Chromium invisível.
+DIR="$(cd "$(dirname "$0")" && pwd)"
+exec "$DIR/../.venv/bin/python" "$DIR/drawio_shim.py" "$@"

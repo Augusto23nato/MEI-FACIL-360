@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<!-- Cena de motion code. Contrato herdado do code-motion do Motion Designer finalizador:
+     window.CFG (injetado) · window.READY · window.DURATION · window.seek(t) — cena = função pura de t. -->
+<style>
+  :root { --ink: #26221d; --paper: #f2ede2; --accent: #d97a2b; }
+  html, body { margin: 0; width: 1280px; height: 720px; overflow: hidden; background: var(--paper); font-family: -apple-system, "SF Pro Display", "Helvetica Neue", sans-serif; color: var(--ink); }
+  #top { position: absolute; left: 48px; top: 30px; right: 48px; display: flex; align-items: baseline; gap: 14px; }
+  #top b { font-size: 30px; letter-spacing: -.02em; }
+  #top span { font-size: 15px; color: #7a7064; border: 1.5px solid #cfc5b4; padding: 2px 10px; border-radius: 999px; }
+  #idea { position: absolute; right: 48px; top: 34px; font-size: 17px; font-weight: 700; color: var(--accent); }
+  #view { position: absolute; left: 40px; top: 92px; width: 1200px; height: 470px; overflow: hidden; border-radius: 18px; background: #fff; box-shadow: 0 1px 0 #d9d0bf, 0 20px 50px rgba(38,34,29,.10); }
+  #cam { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+  #cam img { display: block; }
+  #spot { position: absolute; border-radius: 12px; box-shadow: 0 0 0 4px var(--accent), 0 0 0 9999px rgba(242,237,226,0); pointer-events: none; }
+  #cap { position: absolute; left: 80px; right: 80px; top: 586px; height: 96px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 27px; line-height: 1.32; font-weight: 600; letter-spacing: -.01em; }
+  #dots { position: absolute; left: 0; right: 0; bottom: 18px; display: flex; gap: 8px; justify-content: center; }
+  #dots i { width: 26px; height: 5px; border-radius: 3px; background: #d9d0bf; }
+  #dots i.on { background: var(--accent); }
+</style></head>
+<body>
+<div id="top"><b id="title"></b><span>esquema ilustrativo</span></div>
+<div id="idea"></div>
+<div id="view"><div id="cam"><img id="img"><div id="spot"></div></div></div>
+<div id="cap"></div>
+<div id="dots"></div>
+<script>
+(function () {
+  const C = window.CFG;                                  // {png, W, H, nodes:{id:{x,y,w,h}}, events:[{t, node, text}], duration, title, idea}
+  const img = document.getElementById("img"), cam = document.getElementById("cam"), spot = document.getElementById("spot");
+  const VW = 1200, VH = 470;
+  document.getElementById("title").textContent = C.title || "";
+  document.getElementById("idea").textContent = C.idea || "";
+  document.getElementById("dots").innerHTML = C.events.map(() => "<i></i>").join("");
+  const dots = document.querySelectorAll("#dots i");
+  const fit = Math.min(VW / C.W, VH / C.H) * 0.94;      // escala do diagrama inteiro
+  img.width = C.W * fit; img.height = C.H * fit;
+  const MAXZ = Math.min(2.2, (C.pngW / (C.W * fit)));   // nunca ampliar além da resolução do PNG
+
+  function camFor(node) {                                // {z, x, y} que enquadra o nó (ou o diagrama todo)
+    if (!node || node === "todos" || !C.nodes[node]) return { z: 1, x: (VW - C.W * fit) / 2, y: (VH - C.H * fit) / 2 };
+    const n = C.nodes[node];
+    const z = Math.min(MAXZ, Math.max(1, Math.min(VW * 0.62 / (n.w * fit), VH * 0.62 / (n.h * fit))));
+    const cx = (n.x + n.w / 2) * fit * z, cy = (n.y + n.h / 2) * fit * z;
+    let x = VW / 2 - cx, y = VH / 2 - cy;
+    x = Math.min(0, Math.max(VW - C.W * fit * z, x)); y = Math.min(0, Math.max(VH - C.H * fit * z, y));
+    if (C.W * fit * z < VW) x = (VW - C.W * fit * z) / 2; if (C.H * fit * z < VH) y = (VH - C.H * fit * z) / 2;
+    return { z, x, y };
+  }
+  const ease = (u) => (u <= 0 ? 0 : u >= 1 ? 1 : 1 - Math.pow(1 - u, 3));
+  const lerp = (a, b, u) => a + (b - a) * u;
+  const logLerp = (a, b, u) => Math.exp(lerp(Math.log(a), Math.log(b), u));
+  const TR = 0.55;                                       // transição: ação rápida, significado parado
+
+  window.DURATION = C.duration;
+  window.seek = function (t) {
+    let k = -1; for (let i = 0; i < C.events.length; i++) if (t >= C.events[i].t) k = i;
+    const cur = C.events[Math.max(0, k)], prev = C.events[Math.max(0, k - 1)];
+    const u = k <= 0 ? (k < 0 ? 1 : ease((t - cur.t) / TR)) : ease((t - cur.t) / TR);
+    const a = camFor(k <= 0 ? "todos" : prev.node), b = camFor(k < 0 ? "todos" : cur.node);
+    const z = logLerp(a.z, b.z, u), x = lerp(a.x, b.x, u), y = lerp(a.y, b.y, u);
+    cam.style.transform = `translate(${x}px, ${y}px) scale(${z})`;
+    const n = k >= 0 && C.nodes[cur.node];
+    if (n) {
+      spot.style.display = "block";
+      spot.style.left = n.x * fit - 6 + "px"; spot.style.top = n.y * fit - 6 + "px";
+      spot.style.width = n.w * fit + 12 + "px"; spot.style.height = n.h * fit + 12 + "px";
+      spot.style.boxShadow = `0 0 0 ${4 / z}px var(--accent), 0 0 0 9999px rgba(242,237,226,${0.58 * u})`;
+    } else spot.style.display = "none";
+    document.getElementById("cap").textContent = k >= 0 ? cur.text : C.events[0].text;
+    dots.forEach((d, i) => d.classList.toggle("on", i <= k));
+  };
+  img.onload = () => { window.seek(0); document.fonts.ready.then(() => { window.READY = true; }); };
+  img.src = C.png;
+})();
+</script>
+</body></html>
