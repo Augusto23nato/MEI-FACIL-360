@@ -1,0 +1,226 @@
+{
+ "descricao": "IRPJ, CSLL, PIS e COFINS",
+ "regras": [
+  {
+   "codigo": "IRPJ.ALIQUOTAS",
+   "tributo": "IRPJ",
+   "ente": "FEDERAL",
+   "regime": "TODOS",
+   "vigencia_inicio": "1996-01-01",
+   "vigencia_fim": null,
+   "fundamento": "Lei 9.249/1995, art. 3º, caput e §1º; Lei 9.430/1996, arts. 1º e 4º",
+   "descricao": "IRPJ 15% sobre o lucro (real, presumido ou arbitrado) + adicional de 10% sobre a parcela que exceder R$ 20.000,00 × nº de meses do período.",
+   "criterio": null,
+   "formula": "base * aliquota + max(base - limite_mensal_adicional * meses, 0) * adicional",
+   "parametros": {
+    "aliquota": "0.15",
+    "adicional": "0.10",
+    "limite_mensal_adicional": "20000"
+   },
+   "situacao": "vigente",
+   "uf": null
+  },
+  {
+   "codigo": "CSLL.ALIQUOTA",
+   "tributo": "CSLL",
+   "ente": "FEDERAL",
+   "regime": "TODOS",
+   "vigencia_inicio": "2015-10-01",
+   "vigencia_fim": null,
+   "fundamento": "Lei 7.689/1988, art. 3º, III (redação da Lei 13.169/2015)",
+   "descricao": "CSLL 9% para pessoas jurídicas em geral. Instituições financeiras, seguradoras e equiparadas têm alíquotas próprias (art. 3º, I e II) — não cobertas por esta regra.",
+   "criterio": null,
+   "formula": "base * aliquota",
+   "parametros": {
+    "aliquota": "0.09"
+   },
+   "situacao": "vigente",
+   "uf": null
+  },
+  {
+   "codigo": "LP.PRESUNCAO",
+   "tributo": "IRPJ",
+   "ente": "FEDERAL",
+   "regime": "LUCRO_PRESUMIDO",
+   "vigencia_inicio": "1996-01-01",
+   "vigencia_fim": null,
+   "fundamento": "Lei 9.249/1995, art. 15 (IRPJ) e art. 20 (CSLL, redação da Lei 10.684/2003); Lei 9.250/1995, art. 40 (prestadoras de serviço com receita anual até R$ 120 mil)",
+   "descricao": "Percentuais de presunção do lucro por atividade, aplicados sobre a receita bruta do trimestre.",
+   "criterio": null,
+   "formula": null,
+   "parametros": {
+    "atividades": {
+     "comercio": {
+      "irpj": "0.08",
+      "csll": "0.12",
+      "rotulo": "Comércio (revenda de mercadorias)"
+     },
+     "industria": {
+      "irpj": "0.08",
+      "csll": "0.12",
+      "rotulo": "Indústria (venda de produção própria)"
+     },
+     "revenda_combustiveis": {
+      "irpj": "0.016",
+      "csll": "0.12",
+      "rotulo": "Revenda de combustível derivado de petróleo, álcool e gás natural"
+     },
+     "transporte_cargas": {
+      "irpj": "0.08",
+      "csll": "0.12",
+      "rotulo": "Transporte de cargas"
+     },
+     "transporte_passageiros": {
+      "irpj": "0.16",
+      "csll": "0.12",
+      "rotulo": "Transporte de passageiros"
+     },
+     "servicos_hospitalares": {
+      "irpj": "0.08",
+      "csll": "0.12",
+      "rotulo": "Serviços hospitalares e auxílio diagnóstico (exige sociedade empresária e normas da ANVISA)"
+     },
+     "servicos": {
+      "irpj": "0.32",
+      "csll": "0.32",
+      "rotulo": "Prestação de serviços em geral"
+     },
+     "servicos_ate_120mil": {
+      "irpj": "0.16",
+      "csll": "0.32",
+      "rotulo": "Serviços (exceto hospitalares, transporte e profissões regulamentadas) com receita anual até R$ 120 mil"
+     },
+     "intermediacao_negocios": {
+      "irpj": "0.32",
+      "csll": "0.32",
+      "rotulo": "Intermediação de negócios, administração e locação de imóveis/bens"
+     }
+    }
+   },
+   "situacao": "vigente",
+   "uf": null
+  },
+  {
+   "codigo": "LP.LC224.ACRESCIMO",
+   "tributo": "IRPJ",
+   "ente": "FEDERAL",
+   "regime": "LUCRO_PRESUMIDO",
+   "vigencia_inicio": "2026-01-01",
+   "vigencia_fim": null,
+   "fundamento": "LC 224/2025 (redução linear de benefícios fiscais federais) — acréscimo de 10% aos percentuais de presunção sobre a parcela da receita bruta anual que exceder R$ 5.000.000,00. Para a CSLL, observar a anterioridade nonagesimal. CONFIRMAR parâmetros e forma de controle trimestral na regulamentação da RFB vigente.",
+   "descricao": "Percentual de presunção acrescido de 10% (ex.: 32% → 35,2%) sobre o excesso de receita. Regra recente: aplicada com alerta para validação.",
+   "criterio": null,
+   "formula": null,
+   "parametros": {
+    "limite_anual": "5000000",
+    "limite_trimestral": "1250000",
+    "acrescimo_relativo": "0.10",
+    "inicio_csll": "2026-04-01"
+   },
+   "situacao": "validar",
+   "uf": null
+  },
+  {
+   "codigo": "PIS.CUMULATIVO",
+   "tributo": "PIS",
+   "ente": "FEDERAL",
+   "regime": "LUCRO_PRESUMIDO",
+   "vigencia_inicio": "2004-02-01",
+   "vigencia_fim": null,
+   "fundamento": "Lei 9.715/1998, art. 8º, I; Lei 9.718/1998, arts. 2º e 3º; Lei 10.637/2002, art. 8º, II",
+   "descricao": "PIS cumulativo 0,65% sobre a receita bruta (exclusões do art. 3º, §2º da Lei 9.718/1998).",
+   "criterio": null,
+   "formula": "base * aliquota",
+   "parametros": {
+    "aliquota": "0.0065"
+   },
+   "situacao": "vigente",
+   "uf": null
+  },
+  {
+   "codigo": "COFINS.CUMULATIVO",
+   "tributo": "COFINS",
+   "ente": "FEDERAL",
+   "regime": "LUCRO_PRESUMIDO",
+   "vigencia_inicio": "1999-02-01",
+   "vigencia_fim": null,
+   "fundamento": "Lei 9.718/1998, art. 8º; Lei 10.833/2003, art. 10, II",
+   "descricao": "COFINS cumulativa 3% sobre a receita bruta.",
+   "criterio": null,
+   "formula": "base * aliquota",
+   "parametros": {
+    "aliquota": "0.03"
+   },
+   "situacao": "vigente",
+   "uf": null
+  },
+  {
+   "codigo": "PIS.NAO_CUMULATIVO",
+   "tributo": "PIS",
+   "ente": "FEDERAL",
+   "regime": "LUCRO_REAL",
+   "vigencia_inicio": "2002-12-01",
+   "vigencia_fim": null,
+   "fundamento": "Lei 10.637/2002, arts. 1º, 2º e 3º",
+   "descricao": "PIS não cumulativo 1,65%; créditos do art. 3º à mesma alíquota.",
+   "criterio": null,
+   "formula": "base * aliquota",
+   "parametros": {
+    "aliquota": "0.0165"
+   },
+   "situacao": "vigente",
+   "uf": null
+  },
+  {
+   "codigo": "COFINS.NAO_CUMULATIVO",
+   "tributo": "COFINS",
+   "ente": "FEDERAL",
+   "regime": "LUCRO_REAL",
+   "vigencia_inicio": "2004-02-01",
+   "vigencia_fim": null,
+   "fundamento": "Lei 10.833/2003, arts. 1º, 2º e 3º",
+   "descricao": "COFINS não cumulativa 7,6%; créditos do art. 3º à mesma alíquota.",
+   "criterio": null,
+   "formula": "base * aliquota",
+   "parametros": {
+    "aliquota": "0.076"
+   },
+   "situacao": "vigente",
+   "uf": null
+  },
+  {
+   "codigo": "LR.COMPENSACAO_PREJUIZO",
+   "tributo": "IRPJ",
+   "ente": "FEDERAL",
+   "regime": "LUCRO_REAL",
+   "vigencia_inicio": "1995-01-01",
+   "vigencia_fim": null,
+   "fundamento": "Lei 9.065/1995, arts. 15 (prejuízo fiscal – IRPJ) e 16 (base negativa – CSLL)",
+   "descricao": "Compensação de prejuízo fiscal / base negativa limitada a 30% do lucro líquido ajustado.",
+   "criterio": null,
+   "formula": null,
+   "parametros": {
+    "limite": "0.30"
+   },
+   "situacao": "vigente",
+   "uf": null
+  },
+  {
+   "codigo": "PISCOFINS.EXCLUSAO_ICMS",
+   "tributo": "PIS/COFINS",
+   "ente": "FEDERAL",
+   "regime": "TODOS",
+   "vigencia_inicio": "2017-03-15",
+   "vigencia_fim": null,
+   "fundamento": "STF, RE 574.706 (Tema 69 de repercussão geral), modulação a partir de 15/03/2017; Lei 14.592/2023 (exclusão do ICMS da base de crédito, art. 3º, §2º, III da Lei 10.637/2002 e da Lei 10.833/2003)",
+   "descricao": "O ICMS destacado na nota não compõe a base de cálculo do PIS/COFINS sobre a receita. Desde 01/05/2023 o ICMS também é excluído da base dos créditos.",
+   "criterio": null,
+   "formula": null,
+   "parametros": {
+    "icms_fora_base_credito_desde": "2023-05-01"
+   },
+   "situacao": "vigente",
+   "uf": null
+  }
+ ]
+}

@@ -1,0 +1,97 @@
+{
+ "descricao": "ICMS e ISS",
+ "regras": [
+  {
+   "codigo": "ICMS.INTERESTADUAL",
+   "tributo": "ICMS",
+   "ente": "FEDERAL",
+   "regime": "TODOS",
+   "vigencia_inicio": "2013-01-01",
+   "vigencia_fim": null,
+   "fundamento": "Resolução do Senado Federal 22/1989 (12% e 7%) e Resolução do Senado Federal 13/2012 (4% para importados com conteúdo de importação > 40%)",
+   "descricao": "Alíquotas interestaduais. 7% nas saídas de S/SE (exceto ES) para N, NE, CO e ES; 12% nas demais; 4% para mercadorias com origem 1, 2, 3 ou 8 (exceto bens sem similar nacional — CAMEX).",
+   "criterio": null,
+   "formula": null,
+   "parametros": {
+    "sul_sudeste_exceto_es": [
+     "SP",
+     "RJ",
+     "MG",
+     "PR",
+     "SC",
+     "RS"
+    ],
+    "destinos_7": [
+     "AC",
+     "AL",
+     "AM",
+     "AP",
+     "BA",
+     "CE",
+     "DF",
+     "ES",
+     "GO",
+     "MA",
+     "MS",
+     "MT",
+     "PA",
+     "PB",
+     "PE",
+     "PI",
+     "RN",
+     "RO",
+     "RR",
+     "SE",
+     "TO"
+    ],
+    "aliquota_7": "0.07",
+    "aliquota_12": "0.12",
+    "aliquota_importado": "0.04",
+    "origens_importado": [
+     "1",
+     "2",
+     "3",
+     "8"
+    ]
+   },
+   "situacao": "vigente",
+   "uf": null
+  },
+  {
+   "codigo": "ICMS.INTERNA",
+   "tributo": "ICMS",
+   "ente": "ESTADUAL",
+   "regime": "TODOS",
+   "vigencia_inicio": "2000-01-01",
+   "vigencia_fim": null,
+   "fundamento": "Legislação estadual (Lei do ICMS e RICMS de cada UF)",
+   "descricao": "Alíquotas internas por UF/NCM NÃO vêm pré-carregadas: o sistema não presume alíquota estadual. Cadastre uma nova vigência desta regra com 'uf' preenchida e os parâmetros 'padrao' e 'por_ncm' conforme o RICMS.",
+   "criterio": null,
+   "formula": null,
+   "parametros": {
+    "padrao": null,
+    "por_ncm": {}
+   },
+   "situacao": "vigente",
+   "uf": null
+  },
+  {
+   "codigo": "ISS.LIMITES",
+   "tributo": "ISS",
+   "ente": "MUNICIPAL",
+   "regime": "TODOS",
+   "vigencia_inicio": "2017-01-01",
+   "vigencia_fim": null,
+   "fundamento": "LC 116/2003, art. 8º, II (máxima 5%) e art. 8º-A (mínima 2%, incluído pela LC 157/2016)",
+   "descricao": "Alíquota do ISS entre 2% e 5%. Alíquota do município deve ser cadastrada por município quando conhecida.",
+   "criterio": null,
+   "formula": null,
+   "parametros": {
+    "minima": "0.02",
+    "maxima": "0.05"
+   },
+   "situacao": "vigente",
+   "uf": null
+  }
+ ]
+}

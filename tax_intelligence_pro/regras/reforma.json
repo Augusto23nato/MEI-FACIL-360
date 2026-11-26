@@ -1,0 +1,79 @@
+{
+ "descricao": "Reforma Tributária",
+ "regras": [
+  {
+   "codigo": "REFORMA.TRANSICAO",
+   "tributo": "IBS/CBS",
+   "ente": "NACIONAL",
+   "regime": "TODOS",
+   "vigencia_inicio": "2026-01-01",
+   "vigencia_fim": null,
+   "fundamento": "EC 132/2023 (ADCT, arts. 125 a 133) e LC 214/2025 (disposições de transição); atos conjuntos RFB/Comitê Gestor do IBS",
+   "descricao": "Cronograma da transição. Alíquotas de referência plenas da CBS e do IBS dependem de resolução do Senado — NÃO estão pré-carregadas: informe-as ao simular anos ≥ 2027.",
+   "criterio": null,
+   "formula": null,
+   "parametros": {
+    "anos": {
+     "2026": {
+      "cbs": "0.009",
+      "ibs": "0.001",
+      "pis_cofins": "vigentes",
+      "icms_iss": "100%",
+      "nota": "Ano de teste: CBS 0,9% e IBS 0,1% destacados, compensáveis com PIS/COFINS; recolhimento pode ser dispensado para quem cumprir as obrigações acessórias (verificar regulamentação). Optantes do Simples Nacional: verificar obrigatoriedade."
+     },
+     "2027": {
+      "cbs": "referencia",
+      "ibs": "0.001",
+      "pis_cofins": "extintos",
+      "icms_iss": "100%",
+      "nota": "CBS plena (reduzida em 0,1 p.p.); IPI zerado, exceto produtos da ZFM; Imposto Seletivo."
+     },
+     "2028": {
+      "cbs": "referencia",
+      "ibs": "0.001",
+      "pis_cofins": "extintos",
+      "icms_iss": "100%",
+      "nota": "Mesma estrutura de 2027."
+     },
+     "2029": {
+      "cbs": "referencia",
+      "ibs": "proporcional",
+      "pis_cofins": "extintos",
+      "icms_iss": "90%",
+      "nota": "ICMS/ISS reduzidos a 90% das alíquotas; IBS cresce proporcionalmente."
+     },
+     "2030": {
+      "cbs": "referencia",
+      "ibs": "proporcional",
+      "pis_cofins": "extintos",
+      "icms_iss": "80%",
+      "nota": ""
+     },
+     "2031": {
+      "cbs": "referencia",
+      "ibs": "proporcional",
+      "pis_cofins": "extintos",
+      "icms_iss": "70%",
+      "nota": ""
+     },
+     "2032": {
+      "cbs": "referencia",
+      "ibs": "proporcional",
+      "pis_cofins": "extintos",
+      "icms_iss": "60%",
+      "nota": ""
+     },
+     "2033": {
+      "cbs": "referencia",
+      "ibs": "referencia",
+      "pis_cofins": "extintos",
+      "icms_iss": "extintos",
+      "nota": "Modelo pleno: ICMS e ISS extintos."
+     }
+    }
+   },
+   "situacao": "vigente",
+   "uf": null
+  }
+ ]
+}

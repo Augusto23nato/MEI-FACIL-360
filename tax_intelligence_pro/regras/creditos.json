@@ -1,0 +1,232 @@
+{
+ "descricao": "Critérios de crédito",
+ "regras": [
+  {
+   "codigo": "CRED.PISCOFINS.NC",
+   "tributo": "PIS/COFINS",
+   "ente": "FEDERAL",
+   "regime": "LUCRO_REAL",
+   "vigencia_inicio": "2004-02-01",
+   "vigencia_fim": null,
+   "fundamento": "Lei 10.637/2002, art. 3º e Lei 10.833/2003, art. 3º (I revenda; II insumos; III energia; IV aluguéis PJ; VI/§14 imobilizado; VIII devoluções; IX frete na venda); §2º (vedações: mão de obra PF, bens não sujeitos ao pagamento, monofásicos para revenda); §3º (só aquisições de PJ domiciliada no país); STJ REsp 1.221.170/PR (Tema 779 – essencialidade/relevância do insumo)",
+   "descricao": "Classificação das entradas por finalidade (sufixo do CFOP) e situação tributária do fornecedor. NÃO considera automaticamente toda aquisição como creditável.",
+   "criterio": null,
+   "formula": null,
+   "parametros": {
+    "cfop": {
+     "revenda": [
+      "102",
+      "117",
+      "118",
+      "121"
+     ],
+     "industrializacao": [
+      "101",
+      "116",
+      "120",
+      "122",
+      "124",
+      "125"
+     ],
+     "uso_consumo": [
+      "556",
+      "407"
+     ],
+     "ativo": [
+      "551",
+      "406"
+     ],
+     "energia": [
+      "252",
+      "253",
+      "254",
+      "255",
+      "256",
+      "257"
+     ],
+     "frete_aquisicao": [
+      "352",
+      "353",
+      "354",
+      "355",
+      "356"
+     ],
+     "devolucao_venda": [
+      "201",
+      "202",
+      "410",
+      "411"
+     ],
+     "st_revenda": [
+      "403"
+     ],
+     "st_industrializacao": [
+      "401"
+     ],
+     "sem_credito": [
+      "910",
+      "911",
+      "912",
+      "913",
+      "914",
+      "915",
+      "916",
+      "917",
+      "918",
+      "919",
+      "920",
+      "921",
+      "923",
+      "924",
+      "925",
+      "926",
+      "934",
+      "949",
+      "901",
+      "902",
+      "903",
+      "904",
+      "905",
+      "906",
+      "907",
+      "908",
+      "909",
+      "552",
+      "553",
+      "554",
+      "555",
+      "557"
+     ]
+    },
+    "cst_fornecedor_sem_credito": {
+     "04": "monofásica – revenda a alíquota zero",
+     "05": "substituição tributária",
+     "06": "alíquota zero",
+     "07": "isenta",
+     "08": "sem incidência",
+     "09": "suspensão"
+    },
+    "cst_fornecedor_monofasico_fabricante": [
+     "02",
+     "03"
+    ]
+   },
+   "situacao": "vigente",
+   "uf": null
+  },
+  {
+   "codigo": "CRED.ICMS",
+   "tributo": "ICMS",
+   "ente": "ESTADUAL",
+   "regime": "TODOS",
+   "vigencia_inicio": "2020-01-01",
+   "vigencia_fim": null,
+   "fundamento": "LC 87/1996, arts. 19, 20 (não cumulatividade; §5º: imobilizado em 1/48 – CIAP), 21 (estorno) e 33, I (uso e consumo somente a partir de 01/01/2033, redação da LC 171/2019); LC 123/2006, art. 23 (Simples: crédito apenas do valor informado em pCredSN/vCredICMSSN)",
+   "descricao": "Regras gerais da LC 87/96. A legislação de cada UF (RICMS) pode trazer vedações/estornos adicionais — confirmar na UF do estabelecimento.",
+   "criterio": null,
+   "formula": null,
+   "parametros": {
+    "cfop": {
+     "revenda": [
+      "102",
+      "117",
+      "118",
+      "121"
+     ],
+     "industrializacao": [
+      "101",
+      "116",
+      "120",
+      "122",
+      "124",
+      "125"
+     ],
+     "uso_consumo": [
+      "556",
+      "407"
+     ],
+     "ativo": [
+      "551",
+      "406"
+     ],
+     "energia": [
+      "252",
+      "253",
+      "254",
+      "255",
+      "256",
+      "257"
+     ],
+     "frete_aquisicao": [
+      "352",
+      "353",
+      "354",
+      "355",
+      "356"
+     ],
+     "devolucao_venda": [
+      "201",
+      "202"
+     ],
+     "st": [
+      "401",
+      "403",
+      "406",
+      "407",
+      "410",
+      "411"
+     ],
+     "sem_credito": [
+      "910",
+      "911",
+      "912",
+      "913",
+      "914",
+      "915",
+      "916",
+      "920",
+      "921",
+      "949",
+      "552",
+      "557"
+     ]
+    },
+    "cst_sem_credito": [
+     "60"
+    ],
+    "parcelas_ciap": "48",
+    "csosn_credito_sn": [
+     "101",
+     "201",
+     "900"
+    ]
+   },
+   "situacao": "vigente",
+   "uf": null
+  },
+  {
+   "codigo": "CRED.IPI",
+   "tributo": "IPI",
+   "ente": "FEDERAL",
+   "regime": "TODOS",
+   "vigencia_inicio": "2010-06-25",
+   "vigencia_fim": null,
+   "fundamento": "Decreto 7.212/2010 (RIPI), art. 226 (créditos básicos: MP, PI e ME para industrialização) e art. 227",
+   "descricao": "Crédito de IPI apenas para estabelecimento industrial ou equiparado, em insumos de industrialização.",
+   "criterio": null,
+   "formula": null,
+   "parametros": {
+    "cfop_credito": [
+     "101",
+     "116",
+     "120",
+     "122",
+     "124",
+     "125"
+    ]
+   },
+   "situacao": "vigente",
+   "uf": null
+  }
+ ]
+}

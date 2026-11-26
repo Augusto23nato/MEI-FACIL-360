@@ -1,0 +1,637 @@
+{
+ "descricao": "Simples Nacional — LC 123/2006",
+ "regras": [
+  {
+   "codigo": "SN.ANEXO.I",
+   "tributo": "SIMPLES_NACIONAL",
+   "ente": "NACIONAL",
+   "regime": "SIMPLES_NACIONAL",
+   "vigencia_inicio": "2018-01-01",
+   "vigencia_fim": null,
+   "fundamento": "LC 123/2006, art. 18, caput e §1º-A, e Anexo I (redação da LC 155/2016)",
+   "descricao": "Anexo I — Comércio. Alíquota efetiva = (RBT12 × Aliq − PD) / RBT12.",
+   "criterio": null,
+   "formula": "(rbt12 * aliquota - deducao) / rbt12",
+   "parametros": {
+    "tributos": [
+     "IRPJ",
+     "CSLL",
+     "COFINS",
+     "PIS",
+     "CPP",
+     "ICMS"
+    ],
+    "faixas": [
+     {
+      "faixa": 1,
+      "ate": "180000",
+      "aliquota": "0.04",
+      "deducao": "0",
+      "reparticao": {
+       "IRPJ": "0.055",
+       "CSLL": "0.035",
+       "COFINS": "0.1274",
+       "PIS": "0.0276",
+       "CPP": "0.415",
+       "ICMS": "0.34"
+      }
+     },
+     {
+      "faixa": 2,
+      "ate": "360000",
+      "aliquota": "0.073",
+      "deducao": "5940",
+      "reparticao": {
+       "IRPJ": "0.055",
+       "CSLL": "0.035",
+       "COFINS": "0.1274",
+       "PIS": "0.0276",
+       "CPP": "0.415",
+       "ICMS": "0.34"
+      }
+     },
+     {
+      "faixa": 3,
+      "ate": "720000",
+      "aliquota": "0.095",
+      "deducao": "13860",
+      "reparticao": {
+       "IRPJ": "0.055",
+       "CSLL": "0.035",
+       "COFINS": "0.1274",
+       "PIS": "0.0276",
+       "CPP": "0.42",
+       "ICMS": "0.335"
+      }
+     },
+     {
+      "faixa": 4,
+      "ate": "1800000",
+      "aliquota": "0.107",
+      "deducao": "22500",
+      "reparticao": {
+       "IRPJ": "0.055",
+       "CSLL": "0.035",
+       "COFINS": "0.1274",
+       "PIS": "0.0276",
+       "CPP": "0.42",
+       "ICMS": "0.335"
+      }
+     },
+     {
+      "faixa": 5,
+      "ate": "3600000",
+      "aliquota": "0.143",
+      "deducao": "87300",
+      "reparticao": {
+       "IRPJ": "0.055",
+       "CSLL": "0.035",
+       "COFINS": "0.1274",
+       "PIS": "0.0276",
+       "CPP": "0.42",
+       "ICMS": "0.335"
+      }
+     },
+     {
+      "faixa": 6,
+      "ate": "4800000",
+      "aliquota": "0.19",
+      "deducao": "378000",
+      "reparticao": {
+       "IRPJ": "0.135",
+       "CSLL": "0.1",
+       "COFINS": "0.2827",
+       "PIS": "0.0613",
+       "CPP": "0.42100000000000004",
+       "ICMS": "0.0"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "codigo": "SN.ANEXO.II",
+   "tributo": "SIMPLES_NACIONAL",
+   "ente": "NACIONAL",
+   "regime": "SIMPLES_NACIONAL",
+   "vigencia_inicio": "2018-01-01",
+   "vigencia_fim": null,
+   "fundamento": "LC 123/2006, art. 18, caput e §1º-A, e Anexo II (redação da LC 155/2016)",
+   "descricao": "Anexo II — Indústria. Alíquota efetiva = (RBT12 × Aliq − PD) / RBT12.",
+   "criterio": null,
+   "formula": "(rbt12 * aliquota - deducao) / rbt12",
+   "parametros": {
+    "tributos": [
+     "IRPJ",
+     "CSLL",
+     "COFINS",
+     "PIS",
+     "CPP",
+     "IPI",
+     "ICMS"
+    ],
+    "faixas": [
+     {
+      "faixa": 1,
+      "ate": "180000",
+      "aliquota": "0.045",
+      "deducao": "0",
+      "reparticao": {
+       "IRPJ": "0.055",
+       "CSLL": "0.035",
+       "COFINS": "0.1151",
+       "PIS": "0.024900000000000002",
+       "CPP": "0.375",
+       "IPI": "0.075",
+       "ICMS": "0.32"
+      }
+     },
+     {
+      "faixa": 2,
+      "ate": "360000",
+      "aliquota": "0.078",
+      "deducao": "5940",
+      "reparticao": {
+       "IRPJ": "0.055",
+       "CSLL": "0.035",
+       "COFINS": "0.1151",
+       "PIS": "0.024900000000000002",
+       "CPP": "0.375",
+       "IPI": "0.075",
+       "ICMS": "0.32"
+      }
+     },
+     {
+      "faixa": 3,
+      "ate": "720000",
+      "aliquota": "0.1",
+      "deducao": "13860",
+      "reparticao": {
+       "IRPJ": "0.055",
+       "CSLL": "0.035",
+       "COFINS": "0.1151",
+       "PIS": "0.024900000000000002",
+       "CPP": "0.375",
+       "IPI": "0.075",
+       "ICMS": "0.32"
+      }
+     },
+     {
+      "faixa": 4,
+      "ate": "1800000",
+      "aliquota": "0.112",
+      "deducao": "22500",
+      "reparticao": {
+       "IRPJ": "0.055",
+       "CSLL": "0.035",
+       "COFINS": "0.1151",
+       "PIS": "0.024900000000000002",
+       "CPP": "0.375",
+       "IPI": "0.075",
+       "ICMS": "0.32"
+      }
+     },
+     {
+      "faixa": 5,
+      "ate": "3600000",
+      "aliquota": "0.147",
+      "deducao": "85500",
+      "reparticao": {
+       "IRPJ": "0.055",
+       "CSLL": "0.035",
+       "COFINS": "0.1151",
+       "PIS": "0.024900000000000002",
+       "CPP": "0.375",
+       "IPI": "0.075",
+       "ICMS": "0.32"
+      }
+     },
+     {
+      "faixa": 6,
+      "ate": "4800000",
+      "aliquota": "0.3",
+      "deducao": "720000",
+      "reparticao": {
+       "IRPJ": "0.085",
+       "CSLL": "0.075",
+       "COFINS": "0.2096",
+       "PIS": "0.0454",
+       "CPP": "0.235",
+       "IPI": "0.35",
+       "ICMS": "0.0"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "codigo": "SN.ANEXO.III",
+   "tributo": "SIMPLES_NACIONAL",
+   "ente": "NACIONAL",
+   "regime": "SIMPLES_NACIONAL",
+   "vigencia_inicio": "2018-01-01",
+   "vigencia_fim": null,
+   "fundamento": "LC 123/2006, art. 18, caput e §1º-A, e Anexo III (redação da LC 155/2016)",
+   "descricao": "Anexo III — Serviços (locação de bens móveis e serviços do art. 18 §5-B, §5-D e, com Fator R >= 28%, §5-I). Alíquota efetiva = (RBT12 × Aliq − PD) / RBT12.",
+   "criterio": null,
+   "formula": "(rbt12 * aliquota - deducao) / rbt12",
+   "parametros": {
+    "tributos": [
+     "IRPJ",
+     "CSLL",
+     "COFINS",
+     "PIS",
+     "CPP",
+     "ISS"
+    ],
+    "faixas": [
+     {
+      "faixa": 1,
+      "ate": "180000",
+      "aliquota": "0.06",
+      "deducao": "0",
+      "reparticao": {
+       "IRPJ": "0.04",
+       "CSLL": "0.035",
+       "COFINS": "0.1282",
+       "PIS": "0.0278",
+       "CPP": "0.434",
+       "ISS": "0.335"
+      }
+     },
+     {
+      "faixa": 2,
+      "ate": "360000",
+      "aliquota": "0.112",
+      "deducao": "9360",
+      "reparticao": {
+       "IRPJ": "0.04",
+       "CSLL": "0.035",
+       "COFINS": "0.1405",
+       "PIS": "0.0305",
+       "CPP": "0.434",
+       "ISS": "0.32"
+      }
+     },
+     {
+      "faixa": 3,
+      "ate": "720000",
+      "aliquota": "0.135",
+      "deducao": "17640",
+      "reparticao": {
+       "IRPJ": "0.04",
+       "CSLL": "0.035",
+       "COFINS": "0.1364",
+       "PIS": "0.0296",
+       "CPP": "0.434",
+       "ISS": "0.325"
+      }
+     },
+     {
+      "faixa": 4,
+      "ate": "1800000",
+      "aliquota": "0.16",
+      "deducao": "35640",
+      "reparticao": {
+       "IRPJ": "0.04",
+       "CSLL": "0.035",
+       "COFINS": "0.1364",
+       "PIS": "0.0296",
+       "CPP": "0.434",
+       "ISS": "0.325"
+      }
+     },
+     {
+      "faixa": 5,
+      "ate": "3600000",
+      "aliquota": "0.21",
+      "deducao": "125640",
+      "reparticao": {
+       "IRPJ": "0.04",
+       "CSLL": "0.035",
+       "COFINS": "0.1282",
+       "PIS": "0.0278",
+       "CPP": "0.434",
+       "ISS": "0.335"
+      }
+     },
+     {
+      "faixa": 6,
+      "ate": "4800000",
+      "aliquota": "0.33",
+      "deducao": "648000",
+      "reparticao": {
+       "IRPJ": "0.35",
+       "CSLL": "0.15",
+       "COFINS": "0.1603",
+       "PIS": "0.0347",
+       "CPP": "0.305",
+       "ISS": "0.0"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "codigo": "SN.ANEXO.IV",
+   "tributo": "SIMPLES_NACIONAL",
+   "ente": "NACIONAL",
+   "regime": "SIMPLES_NACIONAL",
+   "vigencia_inicio": "2018-01-01",
+   "vigencia_fim": null,
+   "fundamento": "LC 123/2006, art. 18, caput e §1º-A, e Anexo IV (redação da LC 155/2016)",
+   "descricao": "Anexo IV — Serviços do art. 18 §5-C (CPP recolhida fora do DAS). Alíquota efetiva = (RBT12 × Aliq − PD) / RBT12.",
+   "criterio": null,
+   "formula": "(rbt12 * aliquota - deducao) / rbt12",
+   "parametros": {
+    "tributos": [
+     "IRPJ",
+     "CSLL",
+     "COFINS",
+     "PIS",
+     "ISS"
+    ],
+    "faixas": [
+     {
+      "faixa": 1,
+      "ate": "180000",
+      "aliquota": "0.045",
+      "deducao": "0",
+      "reparticao": {
+       "IRPJ": "0.188",
+       "CSLL": "0.152",
+       "COFINS": "0.17670000000000002",
+       "PIS": "0.0383",
+       "ISS": "0.445"
+      }
+     },
+     {
+      "faixa": 2,
+      "ate": "360000",
+      "aliquota": "0.09",
+      "deducao": "8100",
+      "reparticao": {
+       "IRPJ": "0.198",
+       "CSLL": "0.152",
+       "COFINS": "0.20550000000000002",
+       "PIS": "0.044500000000000005",
+       "ISS": "0.4"
+      }
+     },
+     {
+      "faixa": 3,
+      "ate": "720000",
+      "aliquota": "0.102",
+      "deducao": "12420",
+      "reparticao": {
+       "IRPJ": "0.20800000000000002",
+       "CSLL": "0.152",
+       "COFINS": "0.1973",
+       "PIS": "0.042699999999999995",
+       "ISS": "0.4"
+      }
+     },
+     {
+      "faixa": 4,
+      "ate": "1800000",
+      "aliquota": "0.14",
+      "deducao": "39780",
+      "reparticao": {
+       "IRPJ": "0.17800000000000002",
+       "CSLL": "0.192",
+       "COFINS": "0.18899999999999997",
+       "PIS": "0.040999999999999995",
+       "ISS": "0.4"
+      }
+     },
+     {
+      "faixa": 5,
+      "ate": "3600000",
+      "aliquota": "0.22",
+      "deducao": "183780",
+      "reparticao": {
+       "IRPJ": "0.188",
+       "CSLL": "0.192",
+       "COFINS": "0.1808",
+       "PIS": "0.0392",
+       "ISS": "0.4"
+      }
+     },
+     {
+      "faixa": 6,
+      "ate": "4800000",
+      "aliquota": "0.33",
+      "deducao": "828000",
+      "reparticao": {
+       "IRPJ": "0.535",
+       "CSLL": "0.215",
+       "COFINS": "0.20550000000000002",
+       "PIS": "0.044500000000000005",
+       "ISS": "0.0"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "codigo": "SN.ANEXO.V",
+   "tributo": "SIMPLES_NACIONAL",
+   "ente": "NACIONAL",
+   "regime": "SIMPLES_NACIONAL",
+   "vigencia_inicio": "2018-01-01",
+   "vigencia_fim": null,
+   "fundamento": "LC 123/2006, art. 18, caput e §1º-A, e Anexo V (redação da LC 155/2016)",
+   "descricao": "Anexo V — Serviços do art. 18 §5-I com Fator R < 28%. Alíquota efetiva = (RBT12 × Aliq − PD) / RBT12.",
+   "criterio": null,
+   "formula": "(rbt12 * aliquota - deducao) / rbt12",
+   "parametros": {
+    "tributos": [
+     "IRPJ",
+     "CSLL",
+     "COFINS",
+     "PIS",
+     "CPP",
+     "ISS"
+    ],
+    "faixas": [
+     {
+      "faixa": 1,
+      "ate": "180000",
+      "aliquota": "0.155",
+      "deducao": "0",
+      "reparticao": {
+       "IRPJ": "0.25",
+       "CSLL": "0.15",
+       "COFINS": "0.141",
+       "PIS": "0.0305",
+       "CPP": "0.28850000000000003",
+       "ISS": "0.14"
+      }
+     },
+     {
+      "faixa": 2,
+      "ate": "360000",
+      "aliquota": "0.18",
+      "deducao": "4500",
+      "reparticao": {
+       "IRPJ": "0.23",
+       "CSLL": "0.15",
+       "COFINS": "0.141",
+       "PIS": "0.0305",
+       "CPP": "0.2785",
+       "ISS": "0.17"
+      }
+     },
+     {
+      "faixa": 3,
+      "ate": "720000",
+      "aliquota": "0.195",
+      "deducao": "9900",
+      "reparticao": {
+       "IRPJ": "0.24",
+       "CSLL": "0.15",
+       "COFINS": "0.1492",
+       "PIS": "0.0323",
+       "CPP": "0.23850000000000002",
+       "ISS": "0.19"
+      }
+     },
+     {
+      "faixa": 4,
+      "ate": "1800000",
+      "aliquota": "0.205",
+      "deducao": "17100",
+      "reparticao": {
+       "IRPJ": "0.21",
+       "CSLL": "0.15",
+       "COFINS": "0.1574",
+       "PIS": "0.0341",
+       "CPP": "0.23850000000000002",
+       "ISS": "0.21"
+      }
+     },
+     {
+      "faixa": 5,
+      "ate": "3600000",
+      "aliquota": "0.23",
+      "deducao": "62100",
+      "reparticao": {
+       "IRPJ": "0.23",
+       "CSLL": "0.125",
+       "COFINS": "0.141",
+       "PIS": "0.0305",
+       "CPP": "0.23850000000000002",
+       "ISS": "0.235"
+      }
+     },
+     {
+      "faixa": 6,
+      "ate": "4800000",
+      "aliquota": "0.305",
+      "deducao": "540000",
+      "reparticao": {
+       "IRPJ": "0.35",
+       "CSLL": "0.155",
+       "COFINS": "0.16440000000000002",
+       "PIS": "0.0356",
+       "CPP": "0.295",
+       "ISS": "0.0"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "codigo": "SN.LIMITES",
+   "tributo": "SIMPLES_NACIONAL",
+   "ente": "NACIONAL",
+   "regime": "SIMPLES_NACIONAL",
+   "vigencia_inicio": "2018-01-01",
+   "vigencia_fim": null,
+   "fundamento": "LC 123/2006, art. 3º, II (limite EPP), art. 13-A, art. 19 e art. 20 (sublimite estadual/municipal); art. 18, §2º (início de atividade)",
+   "descricao": "Limite de receita bruta anual da EPP e sublimite para recolhimento de ICMS/ISS no DAS.",
+   "criterio": null,
+   "formula": null,
+   "parametros": {
+    "limite_epp": "4800000",
+    "sublimite_icms_iss": "3600000",
+    "limite_me": "360000"
+   }
+  },
+  {
+   "codigo": "SN.FATOR_R",
+   "tributo": "SIMPLES_NACIONAL",
+   "ente": "NACIONAL",
+   "regime": "SIMPLES_NACIONAL",
+   "vigencia_inicio": "2018-01-01",
+   "vigencia_fim": null,
+   "fundamento": "LC 123/2006, art. 18, §§ 5º-J, 5º-K e 5º-M (Fator R = folha de salários 12 meses / RBT12)",
+   "descricao": "Atividades do §5º-I tributadas no Anexo III quando Fator R ≥ 28%; caso contrário, Anexo V. Folha inclui pró-labore, FGTS e CPP patronal.",
+   "criterio": null,
+   "formula": "folha12 / rbt12",
+   "parametros": {
+    "limiar": "0.28"
+   }
+  },
+  {
+   "codigo": "SN.TETO_ISS",
+   "tributo": "ISS",
+   "ente": "NACIONAL",
+   "regime": "SIMPLES_NACIONAL",
+   "vigencia_inicio": "2018-01-01",
+   "vigencia_fim": null,
+   "fundamento": "LC 123/2006, Anexos III, IV e V, notas às faixas de repartição (percentual efetivo máximo do ISS = 5%; diferença transferida proporcionalmente aos tributos federais da mesma faixa)",
+   "descricao": "Limita a parcela do ISS na alíquota efetiva a 5% e redistribui o excesso aos tributos federais.",
+   "criterio": null,
+   "formula": null,
+   "parametros": {
+    "teto": "0.05"
+   }
+  },
+  {
+   "codigo": "SN.SEGREGACAO",
+   "tributo": "SIMPLES_NACIONAL",
+   "ente": "NACIONAL",
+   "regime": "SIMPLES_NACIONAL",
+   "vigencia_inicio": "2018-01-01",
+   "vigencia_fim": null,
+   "fundamento": "LC 123/2006, art. 18, §4º-A (I: tributação monofásica e substituição tributária; II: retenção de ISS) e §14 (exportação); Resolução CGSN 140/2018, art. 25",
+   "descricao": "Tributos cujo percentual é desconsiderado no DAS conforme a natureza da receita segregada no PGDAS-D.",
+   "criterio": null,
+   "formula": null,
+   "parametros": {
+    "tipos": {
+     "monofasico": {
+      "excluir": [
+       "PIS",
+       "COFINS"
+      ],
+      "rotulo": "Tributação monofásica de PIS/COFINS"
+     },
+     "icms_st": {
+      "excluir": [
+       "ICMS"
+      ],
+      "rotulo": "ICMS por substituição tributária (substituído) ou antecipação encerrativa"
+     },
+     "iss_retido": {
+      "excluir": [
+       "ISS"
+      ],
+      "rotulo": "ISS retido pelo tomador"
+     },
+     "exportacao": {
+      "excluir": [
+       "COFINS",
+       "PIS",
+       "IPI",
+       "ICMS",
+       "ISS"
+      ],
+      "rotulo": "Exportação (inclusive via comercial exportadora)"
+     }
+    }
+   }
+  }
+ ]
+}

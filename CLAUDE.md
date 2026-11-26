@@ -11,3 +11,9 @@ Nesta nuvem (contêiner):
   da tela 1 com o Playwright e envie o print e `runs/<aula>/video/fluxograma.mp4` para a pessoa.
 - A chave do ElevenLabs é injetada pelo proxy do ambiente (no arquivo de configuração há só `proxy-injected`).
   Nunca peça a chave no chat.
+
+## TAX INTELLIGENCE PRO (auditoria tributária)
+Módulo em `tax_intelligence_pro/` (Python stdlib + SQLite). Documentação em `tax_intelligence_pro/README.md` e `docs/`.
+- Testes: `cd tax_intelligence_pro && python3 -m pytest -q tests`
+- Servidor: `./iniciar.sh` (http://127.0.0.1:8360); base de demonstração: `./iniciar.sh demo`
+- Nunca inventar alíquotas, créditos ou dispositivos legais: regras novas vão para o motor de regras com fundamento e vigência.

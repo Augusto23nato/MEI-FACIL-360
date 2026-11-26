@@ -1,0 +1,388 @@
+{
+ "_nota": "Perfis de PARTIDA. Os nomes de colunas variam conforme a versão e o relatório exportado por cada software; confira o cabeçalho do seu arquivo e ajuste os apelidos ('aliases') abaixo. Os apelidos do perfil 'generico' valem para todos os perfis.",
+ "generico": {
+  "documentos": {
+   "chave": [
+    "chave",
+    "chave_de_acesso",
+    "chave_acesso",
+    "chave_nfe",
+    "chave_nf_e",
+    "chv_nfe"
+   ],
+   "numero": [
+    "numero",
+    "numero_nota",
+    "n_nota",
+    "nota",
+    "num_doc",
+    "documento",
+    "nf",
+    "numero_documento"
+   ],
+   "serie": [
+    "serie"
+   ],
+   "data_emissao": [
+    "data",
+    "data_emissao",
+    "emissao",
+    "dt_emissao",
+    "data_documento",
+    "dt_doc"
+   ],
+   "operacao": [
+    "operacao",
+    "tipo",
+    "entrada_saida",
+    "e_s",
+    "es",
+    "ind_oper"
+   ],
+   "cnpj_emit": [
+    "cnpj_emitente",
+    "cnpj_emit",
+    "emitente_cnpj",
+    "cnpj_fornecedor"
+   ],
+   "cnpj_dest": [
+    "cnpj_destinatario",
+    "cnpj_dest",
+    "destinatario_cnpj",
+    "cnpj_cliente"
+   ],
+   "cnpj_part": [
+    "cnpj",
+    "cnpj_cpf",
+    "cpf_cnpj",
+    "cnpj_participante",
+    "participante_cnpj"
+   ],
+   "uf_emit": [
+    "uf_emitente",
+    "uf_origem"
+   ],
+   "uf_dest": [
+    "uf_destinatario",
+    "uf_destino",
+    "uf"
+   ],
+   "nome_part": [
+    "participante",
+    "razao_social",
+    "nome",
+    "fornecedor_cliente",
+    "fornecedor",
+    "cliente"
+   ],
+   "valor_total": [
+    "valor_total",
+    "valor_contabil",
+    "vl_doc",
+    "valor_documento",
+    "total_nota",
+    "valor_nota",
+    "valor"
+   ],
+   "cfop": [
+    "cfop"
+   ],
+   "ncm": [
+    "ncm",
+    "cod_ncm"
+   ],
+   "descricao": [
+    "descricao",
+    "produto",
+    "item",
+    "descricao_produto"
+   ],
+   "n_item": [
+    "item_n",
+    "n_item",
+    "num_item",
+    "seq_item"
+   ],
+   "cst_icms": [
+    "cst",
+    "cst_icms",
+    "csosn",
+    "sit_trib"
+   ],
+   "vprod": [
+    "valor_produto",
+    "vl_item",
+    "valor_item",
+    "valor_mercadoria"
+   ],
+   "vbc_icms": [
+    "base_icms",
+    "bc_icms",
+    "base_calculo_icms",
+    "vl_bc_icms",
+    "base_de_calculo"
+   ],
+   "p_icms": [
+    "aliquota_icms",
+    "aliq_icms",
+    "aliquota",
+    "p_icms"
+   ],
+   "v_icms": [
+    "valor_icms",
+    "vl_icms",
+    "icms"
+   ],
+   "v_st": [
+    "icms_st",
+    "valor_icms_st",
+    "vl_icms_st",
+    "valor_st"
+   ],
+   "v_ipi": [
+    "valor_ipi",
+    "vl_ipi",
+    "ipi"
+   ],
+   "cst_pis": [
+    "cst_pis"
+   ],
+   "v_pis": [
+    "valor_pis",
+    "vl_pis",
+    "pis"
+   ],
+   "cst_cofins": [
+    "cst_cofins"
+   ],
+   "v_cofins": [
+    "valor_cofins",
+    "vl_cofins",
+    "cofins"
+   ],
+   "v_iss": [
+    "valor_iss",
+    "vl_iss",
+    "iss"
+   ]
+  },
+  "apuracao": {
+   "periodo": [
+    "periodo",
+    "competencia",
+    "mes_ano",
+    "mes"
+   ],
+   "tributo": [
+    "tributo",
+    "imposto"
+   ],
+   "campo": [
+    "campo",
+    "descricao",
+    "rubrica"
+   ],
+   "valor": [
+    "valor",
+    "total"
+   ]
+  },
+  "balancete": {
+   "periodo": [
+    "periodo",
+    "competencia",
+    "mes"
+   ],
+   "conta": [
+    "conta",
+    "codigo",
+    "cod_conta",
+    "classificacao"
+   ],
+   "descricao": [
+    "descricao",
+    "nome_conta",
+    "conta_descricao"
+   ],
+   "saldo_ini": [
+    "saldo_anterior",
+    "saldo_inicial"
+   ],
+   "debitos": [
+    "debito",
+    "debitos"
+   ],
+   "creditos": [
+    "credito",
+    "creditos"
+   ],
+   "saldo_fim": [
+    "saldo_atual",
+    "saldo_final",
+    "saldo"
+   ]
+  },
+  "pgdas": {
+   "periodo": [
+    "periodo",
+    "competencia",
+    "pa",
+    "periodo_apuracao"
+   ],
+   "receita_bruta": [
+    "receita_bruta",
+    "receita",
+    "receita_pa",
+    "rpa"
+   ],
+   "rbt12": [
+    "rbt12"
+   ],
+   "receita_monofasico": [
+    "receita_monofasico",
+    "monofasico"
+   ],
+   "receita_icms_st": [
+    "receita_st",
+    "receita_icms_st",
+    "st"
+   ],
+   "receita_exportacao": [
+    "receita_exportacao",
+    "exportacao"
+   ],
+   "valor_das": [
+    "valor_das",
+    "das",
+    "total_devido",
+    "valor_devido"
+   ],
+   "valor_pago": [
+    "valor_pago",
+    "pago"
+   ],
+   "anexo": [
+    "anexo"
+   ]
+  },
+  "dctfweb": {
+   "periodo": [
+    "periodo",
+    "competencia",
+    "pa"
+   ],
+   "tributo": [
+    "tributo",
+    "grupo"
+   ],
+   "codigo_receita": [
+    "codigo_receita",
+    "codigo",
+    "cod_receita"
+   ],
+   "valor_debito": [
+    "valor_debito",
+    "debito",
+    "valor_apurado",
+    "saldo_a_pagar",
+    "valor"
+   ],
+   "valor_pago": [
+    "valor_pago",
+    "pago",
+    "pagamento"
+   ]
+  },
+  "pagamentos": {
+   "periodo": [
+    "periodo",
+    "competencia",
+    "pa"
+   ],
+   "tributo": [
+    "tributo"
+   ],
+   "codigo_receita": [
+    "codigo_receita",
+    "codigo"
+   ],
+   "valor_pago": [
+    "valor_pago",
+    "valor",
+    "valor_principal"
+   ],
+   "data_pagamento": [
+    "data_pagamento",
+    "data_arrecadacao",
+    "data"
+   ]
+  }
+ },
+ "fortes": {
+  "documentos": {
+   "valor_total": [
+    "vlr_contabil",
+    "valor_contabil"
+   ],
+   "vbc_icms": [
+    "base_calc_icms",
+    "vlr_base_icms"
+   ],
+   "v_icms": [
+    "vlr_icms"
+   ],
+   "nome_part": [
+    "nome_do_participante"
+   ]
+  }
+ },
+ "dominio": {
+  "documentos": {
+   "valor_total": [
+    "valor_contabil",
+    "vlr_contabil"
+   ],
+   "numero": [
+    "nota",
+    "documento"
+   ],
+   "vbc_icms": [
+    "base_calculo"
+   ],
+   "v_icms": [
+    "imposto_icms",
+    "valor_imposto"
+   ]
+  }
+ },
+ "alterdata": {
+  "documentos": {
+   "valor_total": [
+    "valor_total_nf",
+    "vlr_total"
+   ],
+   "numero": [
+    "num_nf",
+    "numero_nf"
+   ],
+   "v_icms": [
+    "vlr_icms"
+   ]
+  }
+ },
+ "sci": {
+  "documentos": {
+   "valor_total": [
+    "vl_contabil",
+    "valor_contabil"
+   ],
+   "numero": [
+    "nr_documento",
+    "n_documento"
+   ],
+   "v_icms": [
+    "vl_icms"
+   ]
+  }
+ }
+}

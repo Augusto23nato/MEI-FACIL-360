@@ -1,0 +1,126 @@
+{
+ "descricao": "Monofásico e ST",
+ "regras": [
+  {
+   "codigo": "MONOFASICO.NCM",
+   "tributo": "PIS/COFINS",
+   "ente": "FEDERAL",
+   "regime": "TODOS",
+   "vigencia_inicio": "2015-05-01",
+   "vigencia_fim": null,
+   "fundamento": "Lei 10.147/2000 (farmacêuticos e higiene pessoal); Lei 10.485/2002 (autopeças, pneus e câmaras de ar); Lei 9.718/1998, arts. 4º a 6º (combustíveis); Lei 13.097/2015 (bebidas frias)",
+   "descricao": "LISTA PARCIAL DE PREFIXOS DE NCM para TRIAGEM de produtos com tributação concentrada de PIS/COFINS. Cada lei tem exceções por código completo: todo enquadramento sai como 'potencial' e deve ser confirmado no anexo da lei antes de qualquer recuperação.",
+   "criterio": null,
+   "formula": null,
+   "parametros": {
+    "prefixos": {
+     "3003": {
+      "lei": "Lei 10.147/2000, art. 1º, I, 'a'",
+      "grupo": "Medicamentos"
+     },
+     "3004": {
+      "lei": "Lei 10.147/2000, art. 1º, I, 'a'",
+      "grupo": "Medicamentos"
+     },
+     "3303": {
+      "lei": "Lei 10.147/2000, art. 1º, I, 'b'",
+      "grupo": "Perfumaria"
+     },
+     "3304": {
+      "lei": "Lei 10.147/2000, art. 1º, I, 'b'",
+      "grupo": "Cosméticos"
+     },
+     "3305": {
+      "lei": "Lei 10.147/2000, art. 1º, I, 'b'",
+      "grupo": "Preparações capilares"
+     },
+     "3307": {
+      "lei": "Lei 10.147/2000, art. 1º, I, 'b'",
+      "grupo": "Higiene pessoal"
+     },
+     "4011": {
+      "lei": "Lei 10.485/2002, art. 5º",
+      "grupo": "Pneus novos"
+     },
+     "4013": {
+      "lei": "Lei 10.485/2002, art. 5º",
+      "grupo": "Câmaras de ar"
+     },
+     "27101259": {
+      "lei": "Lei 9.718/1998, art. 4º",
+      "grupo": "Gasolina"
+     },
+     "27101921": {
+      "lei": "Lei 9.718/1998, art. 4º",
+      "grupo": "Óleo diesel"
+     },
+     "2201": {
+      "lei": "Lei 13.097/2015, arts. 14 e 25",
+      "grupo": "Águas"
+     },
+     "2202": {
+      "lei": "Lei 13.097/2015, arts. 14 e 25",
+      "grupo": "Refrigerantes e bebidas não alcoólicas"
+     },
+     "2203": {
+      "lei": "Lei 13.097/2015, arts. 14 e 25",
+      "grupo": "Cervejas"
+     }
+    },
+    "cst_saida_monofasico": [
+     "04"
+    ],
+    "cst_entrada_monofasico": [
+     "02",
+     "04"
+    ]
+   },
+   "situacao": "validar",
+   "uf": null
+  },
+  {
+   "codigo": "ICMS.ST.EVIDENCIAS",
+   "tributo": "ICMS",
+   "ente": "ESTADUAL",
+   "regime": "TODOS",
+   "vigencia_inicio": "2000-01-01",
+   "vigencia_fim": null,
+   "fundamento": "LC 87/1996, arts. 6º a 10; Convênio ICMS 142/2018 (regras gerais de ST); protocolos/convênios por segmento e RICMS da UF",
+   "descricao": "Evidências documentais de mercadoria com ICMS-ST retido anteriormente: CST 10/30/60/70 (ou CSOSN 201/202/203/500), CFOP 1401/1403/2401/2403 nas entradas e 5405/6404 nas saídas.",
+   "criterio": null,
+   "formula": null,
+   "parametros": {
+    "cst_saida_st": [
+     "60"
+    ],
+    "csosn_saida_st": [
+     "500"
+    ],
+    "cfop_saida_st": [
+     "5405",
+     "6404"
+    ],
+    "cfop_entrada_st": [
+     "1401",
+     "1403",
+     "2401",
+     "2403"
+    ],
+    "cst_entrada_st": [
+     "10",
+     "30",
+     "70",
+     "60"
+    ],
+    "csosn_entrada_st": [
+     "201",
+     "202",
+     "203",
+     "500"
+    ]
+   },
+   "situacao": "vigente",
+   "uf": null
+  }
+ ]
+}
