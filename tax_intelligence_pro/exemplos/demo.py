@@ -22,7 +22,7 @@ def main():
     senha = seguranca.garantir_admin(con)
     if senha:
         arq = db.DATA_DIR / "SENHA_INICIAL_ADMIN.txt"
-        arq.write_text(f"login: admin\nsenha: {senha}\nTroque após o primeiro acesso e apague este arquivo.\n")
+        arq.write_text(f"login: admin\nsenha: {senha}\nTroque após o primeiro acesso e apague este arquivo.\n", encoding="utf-8")
         arq.chmod(0o600)
     u = dict(con.execute("SELECT * FROM usuarios WHERE login='admin'").fetchone())
     pasta = Path(tempfile.mkdtemp())

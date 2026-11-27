@@ -425,7 +425,8 @@ class Handler(BaseHTTPRequestHandler):
 
 
 def criar_servidor(host="127.0.0.1", porta=8360, caminho_db=None) -> tuple[ThreadingHTTPServer, App]:
-    mimetypes.add_type("text/javascript", ".js")
+    mimetypes.add_type("text/javascript", ".js")   # o registro do Windows às vezes mapeia .js/.css errado
+    mimetypes.add_type("text/css", ".css")
     app = App(caminho_db)
     Handler.app = app
     srv = ThreadingHTTPServer((host, porta), Handler)
@@ -438,7 +439,7 @@ def main():
     srv, app = criar_servidor(host, porta)
     if app.senha_inicial:
         arq = db.DATA_DIR / "SENHA_INICIAL_ADMIN.txt"
-        arq.write_text(f"login: admin\nsenha: {app.senha_inicial}\nTroque após o primeiro acesso e apague este arquivo.\n")
+        arq.write_text(f"login: admin\nsenha: {app.senha_inicial}\nTroque após o primeiro acesso e apague este arquivo.\n", encoding="utf-8")
         os.chmod(arq, 0o600)
         print(f"Administrador criado. Senha inicial gravada em {arq}")
     print(f"TAX INTELLIGENCE PRO em http://{host}:{porta}")
