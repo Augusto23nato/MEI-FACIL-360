@@ -151,3 +151,26 @@ def test_credito_nao_e_automatico(motor):
     assert avaliar(item, doc, {"regime": "SIMPLES_NACIONAL"}, motor, "1102") == []
     c = {a["tributo"]: a for a in avaliar(item, doc, {"regime": "LUCRO_PRESUMIDO"}, motor, "1102")}
     assert set(c) == {"ICMS"}                                            # presumido: PIS/COFINS cumulativos, sem crédito
+
+
+def test_modelos_de_planilha_importam(con, empresas, usuario):
+    """As planilhas modelo entregues ao usuário (pasta modelos/) importam vazias e preenchidas."""
+    import io
+    from pathlib import Path
+
+    from openpyxl import load_workbook
+    pasta = Path(__file__).resolve().parent.parent / "modelos"
+    emp = empresas[0]
+    b = (pasta / "modelo_dctfweb_pagamentos_lucro_real.xlsx").read_bytes()
+    assert importar(con, emp["id"], "vazio.xlsx", b, usuario, opcoes={"tipo_planilha": "dctfweb"})["registros"] == 0
+    wb = load_workbook(io.BytesIO(b))
+    ws = wb.worksheets[0]
+    ws["A2"], ws["D2"], ws["E2"] = "10/2026", 1250.0, 1370.0       # linha do PIS
+    out = io.BytesIO()
+    wb.save(out)
+    r = importar(con, emp["id"], "pis.xlsx", out.getvalue(), usuario, opcoes={"tipo_planilha": "dctfweb"})
+    assert r["registros"] == 2
+    vals = {row["campo"]: row["valor"] for row in con.execute("SELECT campo, valor FROM apuracoes WHERE tributo='PIS'")}
+    assert vals == {"valor_debito#6912": "1250", "valor_pago#6912": "1370"}
+    b = (pasta / "modelo_balancete.xlsx").read_bytes()
+    assert importar(con, emp["id"], "bal.xlsx", b, usuario, opcoes={"tipo_planilha": "balancete"})["status"] == "concluida"

@@ -122,7 +122,7 @@ justificativa e documentos obrigatórios.
 
 ## 6. Testes (`tests/`)
 
-42 testes. Os cálculos são validados com exemplos conferidos à mão contra a lei:
+43 testes. Os cálculos são validados com exemplos conferidos à mão contra a lei:
 
 * **Simples Nacional**: alíquota efetiva nos 5 anexos, teto do ISS, Fator R, segregação, início de atividade.
 * **Lucro Presumido**: serviços, comércio, retenções e a LC 224/2025.

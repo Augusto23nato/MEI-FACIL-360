@@ -753,7 +753,8 @@ def contabil_x_fiscal(dd: Dados, A: Achados):
         grupo = dd.mapa.get(sd["conta"])
         if grupo:
             por[sd["periodo"]][grupo]["mov"] += D(sd["creditos"]) - D(sd["debitos"])
-            por[sd["periodo"]][grupo]["saldo"] += -D(sd["saldo_fim"])   # saldo credor positivo
+            # contas de imposto a recolher: aceita saldo credor com sinal negativo ou positivo (varia por sistema contábil)
+            por[sd["periodo"]][grupo]["saldo"] += abs(D(sd["saldo_fim"]))
     receita_fiscal = defaultdict(lambda: ZERO)
     fonte_rec = "xml" if dd.fontes.get("xml") else "efd_icms_ipi"
     for d in dd.unicos(fonte_rec).values():
