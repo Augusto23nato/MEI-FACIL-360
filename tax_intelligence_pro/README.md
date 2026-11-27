@@ -15,6 +15,9 @@ cálculo e procedimento de validação.
 3. Clique duas vezes em **`INICIAR.bat`**. O navegador abre em http://127.0.0.1:8360 e a janela preta mostra a senha
    do primeiro acesso. Não feche a janela preta enquanto usar o sistema.
 
+Esqueceu a senha? Clique duas vezes em **`RESETAR_SENHA.bat`** (ou rode `python -m tip.redefinir_senha`): é gerada
+uma senha nova para o `admin`, sem perder dados, e o evento fica na trilha de auditoria.
+
 ## Como rodar (Mac/Linux ou pelo terminal)
 
 Requisitos: Python 3.11+ (somente biblioteca padrão). Opcional: `openpyxl` para planilhas `.xlsx` e
