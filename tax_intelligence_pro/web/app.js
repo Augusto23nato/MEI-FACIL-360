@@ -12,10 +12,14 @@
   const REGIMES = { SIMPLES_NACIONAL: "Simples Nacional", LUCRO_PRESUMIDO: "Lucro Presumido", LUCRO_REAL: "Lucro Real" };
   const STATUS = { pendente_validacao: "Pendente de validação", validado_documental: "Validado (documental)",
     validado_juridico: "Validado (jurídico)", descartado: "Descartado" };
-  const mesAtual = () => new Date().toISOString().slice(0, 7);
+  const DEMO = window.TIP_DEMO || null;   // modo demonstração (página estática com dados de exemplo)
+  const hoje = () => (DEMO && DEMO.hoje ? new Date(DEMO.hoje + "T12:00:00") : new Date());
+  const mesAtual = () => hoje().toISOString().slice(0, 7);
+  const lerToken = () => { try { return sessionStorage.getItem("tip_token"); } catch (e) { return null; } };
+  const gravarToken = (t) => { try { t ? sessionStorage.setItem("tip_token", t) : sessionStorage.removeItem("tip_token"); } catch (e) { /* indisponível */ } };
 
   const S = {
-    token: sessionStorage.getItem("tip_token"), usuario: null, empresas: [], empresa: null, tela: "visao",
+    token: (DEMO && DEMO.token) || lerToken(), usuario: null, empresas: [], empresa: null, tela: "visao",
     lerEmpresa() { try { return Number(localStorage.getItem("tip_empresa")) || null; } catch (e) { return null; } },
     gravarEmpresa(id) { try { localStorage.setItem("tip_empresa", id); } catch (e) { /* armazenamento indisponível */ } },
   };
@@ -44,6 +48,7 @@
   async function tentar(fn) { try { return await fn(); } catch (e) { aviso(e.message, true); } }
   async function baixar(caminho, nome) {
     const r = await api("GET", caminho, undefined, { bruto: true });
+    if (DEMO && DEMO.abrir) return DEMO.abrir(caminho, nome, await r.text());
     const url = URL.createObjectURL(await r.blob());
     const a = Object.assign(document.createElement("a"), { href: url, download: nome });
     if (!nome) { window.open(url, "_blank", "noopener"); } else { a.click(); }
@@ -61,14 +66,14 @@
       e.preventDefault();
       tentar(async () => {
         const r = await api("POST", "/api/login", { login: $("#l-login").value, senha: $("#l-senha").value });
-        S.token = r.token; sessionStorage.setItem("tip_token", r.token);
+        S.token = r.token; gravarToken(r.token);
         iniciar();
       });
     });
   }
   function sair() {
     if (S.token) fetch("/api/logout", { method: "POST", headers: { Authorization: "Bearer " + S.token } }).catch(() => {});
-    S.token = null; sessionStorage.removeItem("tip_token"); telaLogin();
+    S.token = null; gravarToken(null); telaLogin();
   }
 
   const TELAS = [
@@ -270,7 +275,7 @@
     },
     presumido: {
       nome: "Lucro Presumido",
-      form: () => `<div><label>Ano</label><input name="ano" value="${new Date().getFullYear()}"></div><div><label>Trimestre</label><select name="trimestre"><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+      form: () => `<div><label>Ano</label><input name="ano" value="${hoje().getFullYear()}"></div><div><label>Trimestre</label><select name="trimestre"><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
         <div><label>Atividade</label><select name="atividade">${["comercio", "industria", "servicos", "servicos_ate_120mil", "transporte_cargas", "transporte_passageiros", "servicos_hospitalares", "revenda_combustiveis", "intermediacao_negocios"].map((a) => `<option>${a}</option>`).join("")}</select></div>
         <div><label>Receita do trimestre</label><input name="receita" value="300000"></div><div><label>Outras receitas</label><input name="outras" value="0"></div>
         <div><label>ICMS destacado (exclusão PIS/COFINS)</label><input name="icms" value="0"></div><div><label>Receita monofásica (alíq. zero)</label><input name="mono" value="0"></div>
@@ -282,7 +287,7 @@
     },
     real: {
       nome: "Lucro Real",
-      form: () => `<div><label>Início do período</label><input name="data_inicio" value="${new Date().getFullYear()}-01-01"></div><div><label>Meses (3 = trimestral, 12 = anual)</label><input name="meses" value="12"></div>
+      form: () => `<div><label>Início do período</label><input name="data_inicio" value="${hoje().getFullYear()}-01-01"></div><div><label>Meses (3 = trimestral, 12 = anual)</label><input name="meses" value="12"></div>
         <div><label>Lucro contábil</label><input name="lucro" value="500000"></div><div><label>Adições</label><input name="adicoes" value="0"></div><div><label>Exclusões</label><input name="exclusoes" value="0"></div>
         <div><label>Prejuízo fiscal disponível</label><input name="prej" value="0"></div><div><label>Base negativa CSLL</label><input name="bneg" value="0"></div>
         <div><label>Receita tributável PIS/COFINS</label><input name="receita" value="4000000"></div><div><label>ICMS destacado nas vendas</label><input name="icms" value="0"></div>
@@ -294,7 +299,7 @@
     },
     comparativo: {
       nome: "Comparativo de regimes",
-      form: () => `<div><label>Ano</label><input name="ano" value="${new Date().getFullYear()}"></div><div><label>Receita anual</label><input name="receita_anual" value="1800000"></div>
+      form: () => `<div><label>Ano</label><input name="ano" value="${hoje().getFullYear()}"></div><div><label>Receita anual</label><input name="receita_anual" value="1800000"></div>
         <div><label>Anexo do Simples</label><select name="anexo">${["I", "II", "III", "IV", "V", "FATOR_R"].map((a) => `<option>${a}</option>`).join("")}</select></div>
         <div><label>Folha anual (Fator R)</label><input name="folha_anual" value="0"></div>
         <div><label>Atividade (Presumido)</label><select name="atividade_presumido">${["comercio", "industria", "servicos"].map((a) => `<option>${a}</option>`).join("")}</select></div>
@@ -547,7 +552,7 @@
     $("#b-edit-regra", g)?.addEventListener("click", () => editarRegra(r, aoMudar));
   }
   function editarRegra(r, aoMudar) {
-    const base = r || { codigo: "", tributo: "", ente: "ESTADUAL", uf: "", municipio: "", regime: "TODOS", vigencia_inicio: new Date().toISOString().slice(0, 10), vigencia_fim: "", fundamento: "", descricao: "", criterio: "", formula: "", parametros: {}, situacao: "vigente" };
+    const base = r || { codigo: "", tributo: "", ente: "ESTADUAL", uf: "", municipio: "", regime: "TODOS", vigencia_inicio: hoje().toISOString().slice(0, 10), vigencia_fim: "", fundamento: "", descricao: "", criterio: "", formula: "", parametros: {}, situacao: "vigente" };
     const v = (k) => esc(base[k] ?? "");
     const g = gaveta(`<h2>${r ? "Alterar " + esc(r.codigo) : "Nova regra ou nova vigência"}</h2><form id="f-regra" class="form">
       <div><label>Código</label><input name="codigo" value="${v("codigo")}" ${r ? "disabled" : "required"}></div><div><label>Tributo</label><input name="tributo" value="${v("tributo")}" required></div>
